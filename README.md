@@ -10,7 +10,7 @@ where $\Omega = (1+z)^4A_{\rm gal}D_{\rm L}^{-2}$ is the solid angle with $A_{\r
 
 $\tau_{\nu}=\dfrac{M_{\rm dust}}{A_{\rm galaxy}}k_0\biggl(\dfrac{\nu}{250\ \rm GHz}\biggr)^{\beta}$,
 
-with $\beta$ the emissivity index and $k_0 = 0.45\  \rm cm^{2}\ g^{-1}$ the mass absorption coefficient (Beelen+2006). The solid angle is estimated using the size of the NOEMA beam, that is similar for both observations, $0.7\times 0.4$ arcsec$^2$. The effect of the CMB on the dust temperature is given by
+with $\beta$ the emissivity index and $k_0 = 0.45\  \rm cm^{2}\ g^{-1}$ the mass absorption coefficient (Beelen+2006). The solid angle is estimated using the size of the NOEMA beam, that is similar for both observations, $0.7\times 0.4\ {\rm arcsec}^2$. The effect of the CMB on the dust temperature is given by
 
 $T_{\rm dust}(z)=((T_{\rm dust})^{4+\beta}+T_0^{4+\beta}[(1+z)^{4+\beta}-1])^{\frac{1}{4+\beta}}$,
 
