@@ -28,4 +28,4 @@ We also considered the contribution of the CMB emission given by $B_{\nu}(T_{\rm
    - fit with 2 free parameter ($M_{\rm dust}, \beta$)
    - fit with 3 free parameter ($M_{\rm dust}, \beta, T_{\rm dust}$)
      
-   3.2 Along with some examples for the fitting procedure, one can find some examples for showing the best-fitting values (conputed considering the 50th percentile of the distribution for each parameter) with their errors (i.e. 16th and 84th percentile of the dirstribution for each parameter), and for plotting the chain, the corner plot, and the data with the best-fitting models.
+   3.2 Along with some examples for the fitting procedure, one can find some examples for showing the best-fitting values (computed considering the 50th percentile of the distribution for each parameter) with their errors (i.e. 16th and 84th percentiles of the dirstribution for each parameter), and for plotting the chain, the corner plot, and the data with the best-fitting models.
