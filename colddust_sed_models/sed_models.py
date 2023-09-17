@@ -86,7 +86,7 @@ class fitClass:
             T_cmb_z = T_0*(1+self.z)
             Bcmb = BlackBody(temperature=T_cmb_z*u.K)
 
-            T_dust_z = (self.T_dust**(4+p1)+T_0**(4+p1)*((1+self.z)**(4+p1)-1))**(1/(4+p1))
+            T_dust_z = (T_dust**(4+p1)+T_0**(4+p1)*((1+self.z)**(4+p1)-1))**(1/(4+p1))
             Bdust = BlackBody(temperature=T_dust_z*u.K)
 
             tau = sigma_dust*k_nu
