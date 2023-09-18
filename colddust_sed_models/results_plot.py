@@ -12,17 +12,9 @@ from IPython.display import display, Math
 from .sed_models import *
 
 
-def sed_results(sampler, ndim, dis=200):
+def sed_results(sampler, ndim, dis=250):
 
     flat_samples = sampler.get_chain(discard=dis, flat=True)
-
-    if ndim==1:
-        label_new = ["\log(M_{dust}/M_\odot)"]
-    elif ndim==2:
-        label_new = ["\log(M_{dust}/M_\odot)", r"\beta"]
-    else:
-        label_new = ["\log(M_{dust}/M_\odot)", r"\beta", r"T_{dust}"]
-    
 
     q = np.array([])
     popt = np.zeros(ndim)
@@ -42,13 +34,13 @@ def sed_results(sampler, ndim, dis=200):
     return popt, q, mdust_val 
 
 
-def sed_res_plot(sampler, ndim, name, dis=200, save=True):
+def sed_res_plot(sampler, ndim, name, dis=250, path='', save=True, close=False):
 
     fig, axes = plt.subplots(ndim, figsize=(10, 7), sharex=True)
     samples = sampler.get_chain()
     #print(len(samples))
 
-    popt, mdust = sed_results(sampler, ndim, dis)
+    popt, q, mdust = sed_results(sampler, ndim, dis=dis)
     
     if ndim==1:
         labels = [r"$\log(M_{\rm dust}/M_\odot)$"]
@@ -70,9 +62,12 @@ def sed_res_plot(sampler, ndim, name, dis=200, save=True):
     axes[-1].set_xlabel("step number");
 
     if save==True:
-        plt.savefig('mcmc_chain_%s.png' %name, dpi=800)
+        plt.savefig(path+'mcmc_chain_%s.png' %name, dpi=800, bbox_inches='tight', pad_inches=0.01)
+        
+    if close==True:
+        plt.close('all')
 
-    fig.close()
+    flat_samples = sampler.get_chain(discard=dis, flat=True)
     
     label_dic = {'size':15}
 
@@ -104,28 +99,33 @@ def sed_res_plot(sampler, ndim, name, dis=200, save=True):
                           top = True, right = True)
 
     if save==True:
-        plt.savefig('corner_plot_%s.png' %name, dpi=800)
+        plt.savefig(path+'corner_plot_%s.png' %name, dpi=800, bbox_inches='tight', pad_inches=0.01)
 
-    fig.close()
+    if close==True:
+        plt.close('all')
 
-def plot_sed(freq_plot,sampler,nu_obs,flux,flux_err,z,Dl,A,fix,ndim,ylim,pos_text,name,dis=200,save=True):
+    return 
+
+def plot_sed(freq_plot,sampler,nu_obs,flux,flux_err,z,Dl,A,c,fix,ndim,ylim,xlim,pos_text,name,dis=250,font='Times New Roman',path='',save=True,close=False):
 
     wave_plot = c*1e6/(freq_plot*1e9) #micrometri
 
     yd, yu = ylim
+    xd, xu = xlim
     
     fig, ax = plt.subplots(figsize=(7,7))
     ax.set_xscale('log')
     ax.set_yscale('log')
     ax.tick_params(axis = 'both', which = 'major', direction = 'in', length = 15, color = 'k', top = True, right = True, labelsize = 15, width = 1.2)
     ax.tick_params(axis = 'both', which = 'minor', direction = 'in', length = 5, top = True, right = True,width = 1.2)
-    plt.ylim(yd, yi)
+    plt.ylim(yd, yu)
+    ax.set_xlim(xu,xd)
     
-    plt.errorbar(nu_obs,flux, yerr = flux_err, capsize = 3, lw = 1.4, marker = 'd', ms =6, ls='none',color = 'cyan', markeredgecolor='mediumblue',ecolor='mediumblue', zorder =3)
+    ax.errorbar(nu_obs,flux, yerr = flux_err, capsize = 3, lw = 1.4, marker = 'd', ms =6, ls='none',color = 'cyan', markeredgecolor='mediumblue',ecolor='mediumblue', zorder =3)
 
-    popt = sed_results(sampler, ndim, dis)
+    popt, q, mdust = sed_results(sampler, ndim, dis)
 
-    inst = sed_models.fitClass()
+    inst = fitClass()
 
     inst.z = z
     inst.D_l = Dl
@@ -134,12 +134,12 @@ def plot_sed(freq_plot,sampler,nu_obs,flux,flux_err,z,Dl,A,fix,ndim,ylim,pos_tex
     if ndim ==1:
         inst.beta_fix = fix[0]
         inst.T = fix[1]
-        plt.plot(freq_plot,inst.sobs_1par(freq_plot, popt), label = 'MBB', c = 'mediumblue', lw = 1.5, zorder =1)
+        ax.plot(freq_plot,inst.sobs_1par(freq_plot, popt), label = 'MBB', c = 'mediumblue', lw = 1.5, zorder =1)
     elif ndim==2:
         inst.T = fix
-        plt.plot(freq_plot,inst.sobs_2par(freq_plot, popt), label = 'MBB', c = 'mediumblue', lw = 1.5, zorder =1)
+        ax.plot(freq_plot,inst.sobs_2par(freq_plot, popt), label = 'MBB', c = 'mediumblue', lw = 1.5, zorder =1)
     else:
-        plt.plot(freq_plot,inst.sobs_3par(freq_plot, popt), label = 'MBB', c = 'mediumblue', lw = 1.5, zorder =1)
+        ax.plot(freq_plot,inst.sobs_3par(freq_plot, popt), label = 'MBB', c = 'mediumblue', lw = 1.5, zorder =1)
 
     font_dic = {'family':font, 'size':'x-large'}    
     plt.xlabel('Obs Frequency (GHz)', fontsize = 20, fontname = font)
@@ -150,4 +150,9 @@ def plot_sed(freq_plot,sampler,nu_obs,flux,flux_err,z,Dl,A,fix,ndim,ylim,pos_tex
     fig.tight_layout()
 
     if save==True:
-        plt.savefig('sed-%s-freq.png' %name, dpi=800)
+        plt.savefig(path+'sed-%s-freq.png' %name, dpi=800,bbox_inches='tight', pad_inches=0.01)
+
+    if close==True:
+        plt.close('all')
+
+    return 

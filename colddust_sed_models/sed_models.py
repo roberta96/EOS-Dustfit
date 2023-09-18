@@ -99,19 +99,19 @@ class fitClass:
 
 def log_prior_1par(theta): #flat priors
     p0 = theta
-    if 5.0 < p0 < 9.0:
+    if 4.0 < p0 < 9.0:
         return 0.0
     return -np.inf
 
 def log_prior_2par(theta): #flat priors
     p0, p1 = theta
-    if 5.0 < p0 < 9.0 and 0.5 < p1 < 5.0:
+    if 4.0 < p0 < 9.0 and 0.5 < p1 < 5.0:
         return 0.0
     return -np.inf
 
 def log_prior_3par(theta): #flat priors
     p0, p1, p2 = theta #p0=esp, p1=beta, p2=T
-    if 5.0 < p0 < 9.0 and 0.5 < p1 < 5.0 and 10. < p2 < 300.:
+    if 4.0 < p0 < 9.0 and 0.5 < p1 < 5.0 and 5. < p2 < 300.:
         return 0.0
     return -np.inf
 
@@ -181,8 +181,12 @@ def log_posterior_3par(theta, nuobs, fl, fl_err,inst):
         return -np.inf, -np.inf, -np.inf
     return logpos, lp, logl
 
-def run_chain(start,npar,filename,nu_obs,flux,flux_err,z,Dl,A,fix,iteration=3000,run=True,prog=True):
-    walk = 10*npar
+def run_chain(start,npar,filename,nu_obs,flux,flux_err,z,Dl,A,fix,walker=0,iteration=3000,run=True,prog=True):
+
+    if walker == 0:
+        walk = 10*npar
+    else:
+        walk = walker
 
     inst = fitClass()
 
