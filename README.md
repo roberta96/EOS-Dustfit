@@ -29,3 +29,21 @@ We also considered the contribution of the CMB emission given by $B_{\nu}(T_{\rm
    - fit with 3 free parameter ($M_{\rm dust}, \beta, T_{\rm dust}$)
      
    3.2 Along with some examples for the fitting procedure, one can find some examples for showing the best-fitting values (computed considering the 50th percentile of the distribution for each parameter) with their errors (i.e. 16th and 84th percentiles of the dirstribution for each parameter), and for plotting the chain, the corner plot, and the data with the best-fitting models.
+
+# Most important functions
+
+- colddust_sed_models.sed_models.run_chain(start,npar,filename,nu_obs,flux,flux_err,z,Dl,A,fix,walker=0,iteration=3000,run=True,prog=True)
+  start = start position of the walkers in the chain (list of max 3 numbers)
+  npar = number of free parameter (it can be 1,2 or 3)
+  filename = filename used to save the chain (it has to be a string like 'path/name.h5'). Always remember to remove the file .h5 if you want to run twice the same chain.
+  nu_obs = observed frequencies of the data (in GHz)
+  flux = observed fluxes at nu_obs (in mJy)
+  flux_err = error associated to flux (in mJy)
+  z = redshift of the source
+  Dl = luminosity distance at z
+  A = area of the galaxy (in kpc^2)
+  fix = fixed parameters (It can be (beta, Tdust) or (Tdust) or none)
+  walker = number of walkers (Default: walker=0 that corresponds to walker = 10*npar). If one set walker=n=/0, then one has n walkers in the chain.
+  iteration = number of chains (Default: 3000. Usually enough for convergence).
+  run = condition to run the chain (Default: True). If set to False, the chain saved in filename will be imported.
+  prog = condition to show the progress of the MCMC (Default: True)
