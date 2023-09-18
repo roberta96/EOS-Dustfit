@@ -34,9 +34,9 @@ We also considered the contribution of the CMB emission given by $B_{\nu}(T_{\rm
 3. In the notebook some examples to fit your data are reported
    
    3.1 There are three operational modes:
-   - fit with 1 free parameter ($M_{\rm dust}$)
-   - fit with 2 free parameter ($M_{\rm dust}, \beta$)
-   - fit with 3 free parameter ($M_{\rm dust}, \beta, T_{\rm dust}$)
+   - fit with 1 free parameter ($M_{\rm dust}$). Time for running the chain: ~ 1-2 min
+   - fit with 2 free parameter ($M_{\rm dust}, \beta$). Time for running the chain: ~ 2-3 min
+   - fit with 3 free parameter ($M_{\rm dust}, \beta, T_{\rm dust}$). Time for running the chain: ~ 3-4 min
      
    3.2 Along with some examples for the fitting procedure, one can find some examples for showing the best-fitting values (computed considering the 50th percentile of the distribution for each parameter) with their errors (i.e. 16th and 84th percentiles of the dirstribution for each parameter), and for plotting the chain, the corner plot, and the data with the best-fitting models.
 
