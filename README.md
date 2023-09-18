@@ -33,17 +33,18 @@ We also considered the contribution of the CMB emission given by $B_{\nu}(T_{\rm
 # Most important functions
 
 - colddust_sed_models.sed_models.run_chain(start,npar,filename,nu_obs,flux,flux_err,z,Dl,A,fix,walker=0,iteration=3000,run=True,prog=True)
-  start = start position of the walkers in the chain (list of max 3 numbers)
-  npar = number of free parameter (it can be 1,2 or 3)
-  filename = filename used to save the chain (it has to be a string like 'path/name.h5'). Always remember to remove the file .h5 if you want to run twice the same chain.
-  nu_obs = observed frequencies of the data (in GHz)
-  flux = observed fluxes at nu_obs (in mJy)
-  flux_err = error associated to flux (in mJy)
-  z = redshift of the source
-  Dl = luminosity distance at z
-  A = area of the galaxy (in kpc^2)
-  fix = fixed parameters (It can be (beta, Tdust) or (Tdust) or none)
-  walker = number of walkers (Default: walker=0 that corresponds to walker = 10*npar). If one set walker=n=/0, then one has n walkers in the chain.
-  iteration = number of chains (Default: 3000. Usually enough for convergence).
-  run = condition to run the chain (Default: True). If set to False, the chain saved in filename will be imported.
-  prog = condition to show the progress of the MCMC (Default: True)
+  - start = start position of the walkers in the chain (list of max 3 numbers)
+  - npar = number of free parameter (it can be 1,2 or 3)
+  - filename = filename used to save the chain (it has to be a string like 'path/name.h5'). Always remember to remove the file .h5 if you want to run twice the same chain.
+  - nu_obs = observed frequencies of the data (in GHz)
+  - flux = observed fluxes at nu_obs (in mJy)
+  - flux_err = error associated to flux (in mJy)
+  - z = redshift of the source
+  - Dl = luminosity distance at z
+  - A = area of the galaxy (in kpc^2)
+  - fix = fixed parameters (It can be (beta, Tdust) or (Tdust) or none)
+  - walker = number of walkers (Default: walker=0 that corresponds to walker = 10*npar). If one set walker=n=/0, then one has n walkers in the chain.
+  - iteration = number of chains (Default: 3000. Usually enough for convergence).
+  - run = condition to run the chain (Default: True). If set to False, the chain saved in filename will be imported.
+  - prog = condition to show the progress of the MCMC (Default: True)
+    
