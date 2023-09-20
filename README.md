@@ -1,16 +1,16 @@
 # Cold_sed_models
 
-Following Carniani+19, the spectral energy distribution (SED) of the cold dust emission is modelled with a modified black-body (MBB) function given by
+Following Carniani+19, the spectral energy distribution (SED) of the cold dust emission is modelled with a modified black-body (MBB) function given by:
  
-$S_{\nu_{\rm obs}}^{\rm obs} = S_{\nu/(1+z)}^{\rm obs}$  and 
+$S_{\nu_{\rm obs}}^{\rm obs} = S_{\nu/(1+z)}^{\rm obs}$,  
 
-$S_{\nu/(1+z)}^{\rm obs} = \dfrac{\Omega}{(1+z)^3}(B_{\nu}(T_{\rm dust}(z))-B_{\nu}(T_{\rm CMB}(z)))(1-e^{-\tau_{\nu}})$, 
+and $S_{\nu/(1+z)}^{\rm obs} = \dfrac{\Omega}{(1+z)^3}(B_{\nu}(T_{\rm dust}(z))-B_{\nu}(T_{\rm CMB}(z)))(1-e^{-\tau_{\nu}})$, 
 
-where $\Omega = (1+z)^4A_{\rm gal}D_{\rm L}^{-2}$ is the solid angle with $A_{\rm gal}$ , and $D_{\rm L}$ is the surface area and luminosity distance of the galaxy, respectively. The dust optical depth is
+where $\Omega = (1+z)^4A_{\rm gal}D_{\rm L}^{-2}$ is the solid angle, $A_{\rm gal}$ and $D_{\rm L}$ are the surface area and luminosity distance of the galaxy, respectively. The dust optical depth is
 
 $\tau_{\nu}=\dfrac{M_{\rm dust}}{A_{\rm galaxy}}k_0\biggl(\dfrac{\nu}{250\ \rm GHz}\biggr)^{\beta}$,
 
-with $\beta$ the emissivity index and $k_0 = 0.45\  \rm cm^{2}\ g^{-1}$ the mass absorption coefficient (Beelen+2006). The solid angle is estimated from the observed or assumed area of the galaxy. The effect of the CMB on the dust temperature is given by
+with $\beta$ the emissivity index, and $k_0 = 0.45\  \rm cm^{2}\ g^{-1}$ the mass absorption coefficient (Beelen+2006). The solid angle ($\Omega$) is estimated from the observed - or assumed - area of the galaxy. The effect of the CMB on the dust temperature is given by
 
 $T_{\rm dust}(z)=((T_{\rm dust})^{4+\beta}+T_0^{4+\beta}[(1+z)^{4+\beta}-1])^{\frac{1}{4+\beta}}$,
 
@@ -19,13 +19,13 @@ We also considered the contribution of the CMB emission given by $B_{\nu}(T_{\rm
 
 # Packages needed
 
-1. Astropy
-2. Numpy
-3. Scipy
-4. emcee
-5. matplotlib
-6. corner
-7. IPython.display
+1. Astropy v 5.0.4
+2. Numpy v 1.22.3
+3. Scipy v 1.9.1
+4. emcee v 3.1.1
+5. matplotlib v 3.5.1
+6. corner v 2.2.1
+7. IPython v 7.22.0
 
 # How to use the code
 
