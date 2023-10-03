@@ -155,4 +155,67 @@ def plot_sed(freq_plot,sampler,nu_obs,flux,flux_err,z,Dl,A,c,fix,ndim,ylim,xlim,
     if close==True:
         plt.close('all')
 
-    return 
+    return
+
+def lfir_sfr(popt,ndim,z,c,Dl,A):
+    a1 = (c*1e-9/40e-6)/(1+z) #GHz
+    b1 = (c*1e-9/1000e-6)/(1+z)
+
+    inst = fitClass()
+
+    inst.z = z
+    inst.D_l = Dl
+    inst.A = A
+
+    if ndim==1:
+
+        arg = np.array([popt])
+
+    elif ndim==2:
+
+        arg = np.array([popt[0],popt[1]])
+
+    else:
+
+        arg = np.array([popt[0],popt[1],popt[2]])
+    
+    I3 = quad(inst.sobs_3par, b1,a1, args=arg) #(mJy*GHz)
+    dl = Dl * 3.08e21 #cm
+    Lir3 = 4*np.pi*(dl**2)*I3[0]*1e-26*1e9 #(cm2)*(mJy*GHz)*1e-26*1e9 = erg/s
+    L_sun = 3.826*1e33 #erg/s
+    LFIR = Lir3/L_sun #Lsun
+    SFR = 1e-10*Lir3/L_sun #M_sun/year
+
+    return LFIR, SFR
+
+
+def ltir_sfr(popt,ndim,z,c,Dl,A):
+    a1 = (c*1e-9/8e-6)/(1+z) #GHz
+    b1 = (c*1e-9/1000e-6)/(1+z)
+
+    inst = fitClass()
+
+    inst.z = z
+    inst.D_l = Dl
+    inst.A = A
+
+    if ndim==1:
+
+        arg = np.array([popt])
+
+    elif ndim==2:
+
+        arg = np.array([popt[0],popt[1]])
+
+    else:
+
+        arg = np.array([popt[0],popt[1],popt[2]])
+    
+    I3 = quad(inst.sobs_3par, b1,a1, args=arg) #(mJy*GHz)
+    dl = Dl * 3.08e21 #cm
+    Lir3 = 4*np.pi*(dl**2)*I3[0]*1e-26*1e9 #(cm2)*(mJy*GHz)*1e-26*1e9 = erg/s
+    L_sun = 3.826*1e33 #erg/s
+    LTIR = Lir3/L_sun #Lsun
+    SFR = 1e-10*Lir3/L_sun #M_sun/year
+
+    return LTIR, SFR
