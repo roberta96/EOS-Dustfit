@@ -44,7 +44,7 @@ def sed_res_plot(sampler, ndim, name, dis=250, path='', save=True, close=False):
     
     if ndim==1:
         labels = [r"$\log(M_{\rm dust}/M_\odot)$"]
-        truth = [popt]
+        truth = popt
     elif ndim==2:
         labels = [r"$\log(M_{\rm dust}/M_\odot)$", r"$\beta$"]
         truth = [popt[0],popt[1]]
@@ -53,13 +53,19 @@ def sed_res_plot(sampler, ndim, name, dis=250, path='', save=True, close=False):
         truth = [popt[0],popt[1],popt[2]]
         
     for i in range(ndim):
-        ax = axes[i]
+        if ndim==1:
+            ax = axes
+        else:
+            ax = axes[i]
         ax.plot(samples[:, :, i], "k", alpha=0.3)
         ax.set_xlim(0, len(samples))
         ax.set_ylabel(labels[i])
         ax.yaxis.set_label_coords(-0.1, 0.5)
 
-    axes[-1].set_xlabel("step number");
+    if ndim==1:
+        axes.set_xlabel("step number")
+    else:
+        axes[-1].set_xlabel("step number")
 
     if save==True:
         plt.savefig(path+'mcmc_chain_%s.png' %name, dpi=800, bbox_inches='tight', pad_inches=0.01)
