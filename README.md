@@ -27,9 +27,17 @@ We also considered the contribution of the CMB emission given by $B_{\nu}(T_{\rm
 6. corner v 2.2.1
 7. IPython v 7.22.0
 
+# How to install the package
+
+1. Dowload the colddust_sed_models directory
+2. Discover the path of the python package you are using (e.g. entering 'import sys; sys.executable' on the python terminal)
+3. Open a terminal in the folder where colddust_sed_models has been dowloaded
+4. Enter >> python-path/python -m pip install -e colddust_sed_models
+5. To verify that the package is correctly installed, download the test.ipynb notebook in a directory that is different from the one containing colddust_sed_models and then run the first cell of the test.ipynb notebook
+
 # How to use the code
 
-1. Download the repository in your working folder.
+1. Install the package (see previous point)
 2. Open the Jupyter notebook named test.ipynb
 3. In the notebook some examples to fit your data are reported
    
@@ -44,7 +52,7 @@ We also considered the contribution of the CMB emission given by $B_{\nu}(T_{\rm
 
 # Most important functions
 
-- colddust_sed_models.sed_models.run_chain(start,npar,filename,nu_obs,flux,flux_err,z,Dl,A,fix,walker=0,iteration=3000,run=True,prog=True): run the chain
+- cdsed_modelling.sed_models.run_chain(start,npar,filename,nu_obs,flux,flux_err,z,Dl,A,fix,walker=0,iteration=3000,run=True,prog=True): run the chain
   
   - start = start position of the walkers in the chain (list of max 3 numbers)
     
@@ -74,7 +82,7 @@ We also considered the contribution of the CMB emission given by $B_{\nu}(T_{\rm
     
   - prog = condition to show the progress of the MCMC (Default: True)
  
-- colddust_sed_models.results_plot.sed_results(sampler, ndim, dis=250): display best-fitting values
+- cdsed_modelling.results_plot.sed_results(sampler, ndim, dis=250): display best-fitting values
 
    - sampler = chain made by run_chain() or saved in the .h5 file
      
@@ -82,7 +90,7 @@ We also considered the contribution of the CMB emission given by $B_{\nu}(T_{\rm
      
    - dis = number of chains to discard for burn-in (Default: 250)
 
-- colddust_sed_models.results_plot.sed_res_plot(sampler, ndim, name, dis=250, path='', save=True, close=False): display and save the chain and the corner plot
+- cdsed_modelling.results_plot.sed_res_plot(sampler, ndim, name, dis=250, path='', save=True, close=False): display and save the chain and the corner plot
 
   - sampler = as above
     
@@ -98,7 +106,7 @@ We also considered the contribution of the CMB emission given by $B_{\nu}(T_{\rm
     
   - close = condition to display the images in the notebook (Default = False, i.e. it displays the images)
 
- - colddust_sed_models.results_plot.plot_sed(freq_plot,sampler,nu_obs,flux,flux_err,z,Dl,A,c,fix,ndim,ylim,xlim,pos_text,name,dis=250,font='Times New Roman',path='',save=True,close=False): display and save the SED of the source with the best-fitting curve
+ - cdsed_modelling.results_plot.plot_sed(freq_plot,sampler,nu_obs,flux,flux_err,z,Dl,A,c,fix,ndim,ylim,xlim,pos_text,name,dis=250,font='Times New Roman',path='',save=True,close=False): display and save the SED of the source with the best-fitting curve
 
    - freq_plot = x-axis array in observed frequency (GHz)
      
