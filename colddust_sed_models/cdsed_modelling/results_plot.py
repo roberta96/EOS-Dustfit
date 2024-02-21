@@ -167,6 +167,28 @@ def plot_sed(freq_plot,sampler,nu_obs,flux,flux_err,z,Dl,A,c,fix,ndim,ylim,xlim,
 
     return
 
+def sed_func_plot(freq_plot,nu_obs,popt,ndim,z,A,Dl,fix,dis=250):
+
+    inst = fitClass()
+
+    inst.z = z
+    inst.D_l = Dl
+    inst.A = A
+
+    if ndim ==1:
+        inst.beta_fix = fix[0]
+        inst.T = fix[1]
+        res = inst.sobs_1par(freq_plot, popt)
+    elif ndim==2:
+        inst.T = fix
+        res = inst.sobs_2par(freq_plot, popt)
+    else:
+        res = inst.sobs_3par(freq_plot, popt)
+    
+
+    return res
+    
+
 def lfir_sfr(popt,ndim,z,c,Dl,A,fix):
     a1 = (c*1e-9/40e-6)/(1+z) #GHz
     b1 = (c*1e-9/1000e-6)/(1+z)
