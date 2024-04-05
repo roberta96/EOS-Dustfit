@@ -4,7 +4,7 @@ import sys
 from setuptools import setup
 
 setup(name="CDSED_modelling", 
-    version="1.0.2",
+    version="1.0.6",
     author="R.Tripodi",
     author_email="robertatripodi.96@gmail.com",
     description="Package for cold dust SED modelling",

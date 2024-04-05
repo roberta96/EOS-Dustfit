@@ -154,25 +154,25 @@ class fitClass:
 
 def log_prior_1par(theta): #flat priors
     p0 = theta
-    if 3.0 < p0 < 10.0:
+    if 3.0 < p0 < 9.0:
         return 0.0
     return -np.inf
 
 def log_prior_2par(theta): #flat priors
     p0, p1 = theta
-    if 3.0 < p0 < 10.0 and 0.5 < p1 < 5.0:
+    if 3.0 < p0 < 9.0 and 0.5 < p1 < 5.0:
         return 0.0
     return -np.inf
 
 def log_prior_3par(theta): #flat priors
     p0, p1, p2 = theta #p0=esp, p1=beta, p2=T
-    if 3.0 < p0 < 10.0 and 0.5 < p1 < 5.0 and 5. < p2 < 300.:
+    if 3.0 < p0 < 9.0 and 0.5 < p1 < 5.0 and 5. < p2 < 300.:
         return 0.0
     return -np.inf
 
 def log_prior_2par_Md_Td(theta): #flat priors
     p0, p1 = theta #p0=esp, p1=T
-    if 3.0 < p0 < 10.0 and 5. < p1 < 300.:
+    if 3.0 < p0 < 9.0 and 5. < p1 < 300.:
         return 0.0
     return -np.inf
 
