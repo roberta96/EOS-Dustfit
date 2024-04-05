@@ -1,8 +1,0 @@
-setup.py
-CDSED_modelling.egg-info/PKG-INFO
-CDSED_modelling.egg-info/SOURCES.txt
-CDSED_modelling.egg-info/dependency_links.txt
-CDSED_modelling.egg-info/top_level.txt
-cdsed_modelling/__init__.py
-cdsed_modelling/results_plot.py
-cdsed_modelling/sed_models.py
