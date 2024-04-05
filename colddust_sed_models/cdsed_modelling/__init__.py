@@ -1,6 +1,7 @@
 import sys
 from .sed_models import *
 from .results_plot import *
+from .inizialize import *
 
 """
 agree = input(
