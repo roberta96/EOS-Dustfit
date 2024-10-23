@@ -10,19 +10,21 @@
 
 ## <a name="Description"></a>Description
 
-`EOS-Dustfit` is a powerful tool for fitting the spectral energy distribution (SED) of the cold dust emission of galaxies in the millimeter regime, probed by ALMA and NOEMA telescope, and derive dust properties and star formation rate. Eos, as the goddess of dawn, symbolically link to the idea of cosmic or interstellar dust that interacts with light. Dust in space scatters and absorbs light, shaping how we observe distant stars and galaxies, much like how the atmosphere's dust scatters sunlight during dawn.
+`EOS-Dustfit` is a powerful tool for fitting the spectral energy distribution (SED) of the cold dust emission of galaxies in the millimeter regime, probed by ALMA and NOEMA telescope, and derive dust properties and star formation rate. Eos, as the goddess of dawn, symbolically link to the idea of cosmic or interstellar dust that interacts with light. Dust in space scatters and absorbs light, shaping how we observe distant stars and galaxies, much like how the atmosphere's dust scatters sunlight during dawn. ThThe modelling and fitting procedure is described in [Tripodi et al. (2024)](https://ui.adsabs.harvard.edu/abs/2024A%26A...689A.220T/abstract), but also previously used in [Harshan et al. (2024)](https://ui.adsabs.harvard.edu/abs/2024arXiv240812310H/abstract), [Feruglio et al. (2023)](https://ui.adsabs.harvard.edu/abs/2023ApJ...954L..10F/abstract), [Tripodi et al. (2023)](https://ui.adsabs.harvard.edu/abs/2023ApJ...946L..45T/abstract), [Tripodi et al. (2022)](https://ui.adsabs.harvard.edu/abs/2022A%26A...665A.107T/abstract). 
+
+If you use this tool, please do not forget to cite [Tripodi et al. (2024)](https://ui.adsabs.harvard.edu/abs/2024A%26A...689A.220T/abstract).
 
 ## <a name="Setup"></a>Installation and setup
 
 ### <a name="Package_need"></a>Package requirements
 
-1. Astropy v 5.0.4
-2. Numpy v 1.22.3
-3. Scipy v 1.9.1
-4. emcee v 3.1.1
-5. matplotlib v 3.5.1
-6. corner v 2.2.1
-7. IPython v 7.22.0
+1. `Astropy v5.0.4`
+2. `Numpy v1.22.3`
+3. `Scipy v1.9.1`
+4. `emcee v3.1.1`
+5. `matplotlib v3.5.1`
+6. `corner v2.2.1`
+7. `IPython v7.22.0`
 
 ### <a name="Install"></a>How to install `EOS-Dustfit`
 
@@ -30,10 +32,11 @@
 2. Discover the path of the python package you are using (e.g. entering 'import sys; sys.executable' on the python terminal)
 3. Open a terminal in the folder where colddust_sed_models has been dowloaded
 4. Enter (remember to change `python-path`)
+   
    ```
    python-path/python -m pip install -e colddust_sed_models
    ```
-6. To verify that the package is correctly installed, download the test.ipynb notebook in a directory that is different from the one containing colddust_sed_models and then run the first cell of the test.ipynb notebook
+5. To verify that the package is correctly installed, download the test.ipynb notebook in a directory that is different from the one containing colddust_sed_models and then run the first cell of the test.ipynb notebook
 
 ### <a name="Example"></a>How to use the code
 
