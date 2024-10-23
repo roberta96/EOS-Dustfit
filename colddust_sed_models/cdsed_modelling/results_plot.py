@@ -301,8 +301,9 @@ def plot_sed(freq_plot,sampler,par_type,par,nu_obs,flux,flux_err,z,Dl,A,c,fix,nd
 
     props = dict(boxstyle='round', facecolor='white', edgecolor = 'k')
 
-    px1, py1 = pos_res
-    ax.text(px1, py1, textstr, transform=ax.transAxes, fontsize=18, verticalalignment='top', bbox=props)
+    if display_res == True:
+        px1, py1 = pos_res
+        ax.text(px1, py1, textstr, transform=ax.transAxes, fontsize=18, verticalalignment='top', bbox=props)
     
     font_dic = {'family':font, 'size':'x-large'}    
     plt.xlabel('Obs Frequency (GHz)', fontsize = 20, fontname = font)
