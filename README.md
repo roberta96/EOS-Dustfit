@@ -53,7 +53,7 @@ If you use this tool, please do not forget to cite [Tripodi et al. (2024)](https
 
    3.3 About the bayesian method to fit the data: a Gaussian likelihood with uniform priors is adopted. Priors: 4.0 < log(Mdust/Msun) < 9.0 and 0.5 < beta < 5.0 and 5. < Tdust/K < 300.
 
-   3.4 In the file  the most important functions are enlisted with a detailed explanation 
+   3.4 In the file `Useful-functions.md`, the most important functions are enlisted with a detailed explanation 
 
 ## <a name="Basics"></a>Modelling of the dust emission
 
