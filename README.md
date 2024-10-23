@@ -18,13 +18,16 @@ If you use this tool, please do not forget to cite [Tripodi et al. (2024)](https
 
 ### <a name="Package_need"></a>Package requirements
 
-1. `Astropy v5.0.4`
-2. `Numpy v1.22.3`
-3. `Scipy v1.9.1`
-4. `emcee v3.1.1`
-5. `matplotlib v3.5.1`
-6. `corner v2.2.1`
-7. `IPython v7.22.0`
+1. `Python v3.11.5`
+2. `Astropy v5.1`
+3. `Numpy v1.24.3`
+4. `Scipy v1.11.1`
+5. `emcee v3.1.4`
+6. `matplotlib v3.7.2`
+7. `corner v2.2.2`
+8. `IPython v8.15.0`
+
+The current version of `EOS-Dustfit` (v1.0.7) works with those versions of the packages. The compatibility with different versions of the python/packages is not guaranteed. If needed, it is advisable to create an environemnt with all the required packages.
 
 ### <a name="Install"></a>How to install `EOS-Dustfit`
 
@@ -86,3 +89,6 @@ $T_{\rm dust}(z)=((T_{\rm dust})^{4+\beta}+T_0^{4+\beta}[(1+z)^{4+\beta}-1])^{\f
 with $T_0 = 2.73$ K.
 We also considered the contribution of the CMB emission given by $B_{\nu}(T_{\rm CMB}(z)=T_0(1+z))$ (Da cunha+13).
 
+## Acknowledgements
+
+The existence of this software would not have been possible without the thoughful supervision of Prof, F. Fiore and Dr. Chiara Feruglio. I also thank Dr. F. Salvestrini for being the first test subject and for provinding very useful feedback.
