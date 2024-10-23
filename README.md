@@ -64,7 +64,7 @@ If you use this tool, please do not forget to cite [Tripodi et al. (2024)](https
 
 ## <a name="Basics"></a>Modelling of the dust emission
 
-Following Carniani+19, the SED of the cold dust emission is modelled with a modified black-body (MBB) function given by:
+The SED of the cold dust emission is modelled with a modified black-body (MBB) function given by:
  
 $S_{\nu_{\rm obs}}^{\rm obs} = S_{\nu/(1+z)}^{\rm obs}$,  
 
