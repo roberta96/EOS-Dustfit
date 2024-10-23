@@ -30,8 +30,9 @@ If you use this tool, please do not forget to cite [Tripodi et al. (2024)](https
 
 1. Dowload or clone the repository `EOS-Dustfit`
 2. Move the repository in your favourite directory 
-3. Open a terminal and go in the folder where colddust_sed_models has been dowloaded/moved
-   Es. `cd \Downloads\EOS-Dustfit\`
+3. Open a terminal and go in the folder where colddust_sed_models has been dowloaded/moved. Es.
+
+   `cd \Downloads\EOS-Dustfit\`
 5. Discover the path of the python package you are using (e.g. entering 'import sys; sys.executable' on the python terminal)
 6. Enter (remember to change `python-path`)
    
