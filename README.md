@@ -1,6 +1,6 @@
 # EOS-Dustfit
 <br>
-<img src="/logo.png" width="100%">
+<img src="/EOS-logo-final.jpg" width="100%">
 <br>
 ## Contents
 1. [Description](#Description)
