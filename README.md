@@ -10,7 +10,7 @@
 
 ## <a name="Description"></a>Description
 
-`EOS-Dustfit` is a powerful tool for fitting the spectral energy distribution (SED) of galaxies in the millimeter regime, probed by ALMA and NOEMa telescope. Eos, as the goddess of dawn, symbolically link to the idea of cosmic or interstellar dust that interacts with light. Dust in space scatters and absorbs light, shaping how we observe distant stars and galaxies, much like how the atmosphere's dust scatters sunlight during dawn.
+`EOS-Dustfit` is a powerful tool for fitting the spectral energy distribution (SED) of the cold dust emission of galaxies in the millimeter regime, probed by ALMA and NOEMA telescope, and derive dust properties and star formation rate. Eos, as the goddess of dawn, symbolically link to the idea of cosmic or interstellar dust that interacts with light. Dust in space scatters and absorbs light, shaping how we observe distant stars and galaxies, much like how the atmosphere's dust scatters sunlight during dawn.
 
 ## <a name="Setup"></a>Installation and setup
 
