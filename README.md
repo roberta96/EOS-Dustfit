@@ -28,15 +28,17 @@ If you use this tool, please do not forget to cite [Tripodi et al. (2024)](https
 
 ### <a name="Install"></a>How to install `EOS-Dustfit`
 
-1. Dowload the `colddust_sed_models` directory
-2. Discover the path of the python package you are using (e.g. entering 'import sys; sys.executable' on the python terminal)
-3. Open a terminal in the folder where colddust_sed_models has been dowloaded
-4. Enter (remember to change `python-path`)
+1. Dowload or clone the repository `EOS-Dustfit`
+2. Move the repository in your favourite directory 
+3. Open a terminal and go in the folder where colddust_sed_models has been dowloaded/moved
+   Es. `cd \Downloads\EOS-Dustfit\`
+5. Discover the path of the python package you are using (e.g. entering 'import sys; sys.executable' on the python terminal)
+6. Enter (remember to change `python-path`)
    
    ```
    python-path/python -m pip install -e colddust_sed_models
    ```
-5. To verify that the package is correctly installed, download the test.ipynb notebook in a directory that is different from the one containing colddust_sed_models and then run the first cell of the test.ipynb notebook
+7. To verify that the package is correctly installed, move and open the test-eos.ipynb notebook in a directory that is different from the one containing colddust_sed_models and then run the first cell of the test-eos.ipynb notebook
 
 ### <a name="Example"></a>How to use the code
 
