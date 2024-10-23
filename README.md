@@ -1,5 +1,7 @@
 # EOS-Dustfit
-
+<br>
+<img src="/logo.png" width="100%">
+<br>
 ## Contents
 1. [Description](#Description)
 2. [Installation and setup](#Setup)
