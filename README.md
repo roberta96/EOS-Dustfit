@@ -1,7 +1,4 @@
-# EOS-Dustfit
-<br>
-<img src="/EOS-logo-final-circular.png" width="20%">
-<br>
+# <img src="/EOS-logo-final-circular.png" width="20%"> <br> EOS-Dustfit <br>
 
 ## Contents
 1. [Description](#Description)
