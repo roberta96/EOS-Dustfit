@@ -42,7 +42,7 @@ If you use this tool, please do not forget to cite [Tripodi et al. (2024)](https
 
 1. Install the package (see previous point)
 2. Open the Jupyter notebook named test.ipynb
-3. In the notebook some examples to fit your data are reported
+3. In this notebook one can find an extensive example of the code usage.
    
    3.1 There are three operational modes:
    - fit with 1 free parameter. Time for running the chain: ~ 1-2 min
@@ -51,7 +51,9 @@ If you use this tool, please do not forget to cite [Tripodi et al. (2024)](https
      
    3.2 Along with some examples for the fitting procedure, one can find some examples for showing the best-fitting values (computed considering the 50th percentile of the distribution for each parameter) with their errors (i.e. 16th and 84th percentiles of the dirstribution for each parameter), and for plotting the chain, the corner plot, and the data with the best-fitting models.
 
-   3.3 About the bayesian method to fit the data: we adoped a Gaussian likelihood with uniform priors. 4.0 < log(Mdust/Msun) < 9.0 and 0.5 < beta < 5.0 and 5. < Tdust/K < 300.
+   3.3 About the bayesian method to fit the data: a Gaussian likelihood with uniform priors is adopted. Priors: 4.0 < log(Mdust/Msun) < 9.0 and 0.5 < beta < 5.0 and 5. < Tdust/K < 300.
+
+   3.4 In the file  the most important functions are enlisted with a detailed explanation 
 
 ## <a name="Basics"></a>Modelling of the dust emission
 
