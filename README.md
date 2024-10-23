@@ -39,9 +39,14 @@ If you use this tool, please do not forget to cite [Tripodi et al. (2024)](https
 6. Enter (remember to change `python-path`)
    
    ```
-   python-path/python -m pip install -e colddust_sed_models
+   python-path/python -m pip install -e colddust_sed_models/
    ```
 7. To verify that the package is correctly installed, move and open the test-eos.ipynb notebook in a directory that is different from the one containing colddust_sed_models and then run the first cell of the test-eos.ipynb notebook
+8. If you want to upgrade the version, just download and substitute the repository and then run the following command inside the EOS-Dustfit directory:
+
+   ```
+   python-path/python -m pip install --upgrade colddust_sed_models/
+   ```   
 
 ### <a name="Example"></a>How to use the code
 
