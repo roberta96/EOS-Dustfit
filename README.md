@@ -91,4 +91,4 @@ We also considered the contribution of the CMB emission given by $B_{\nu}(T_{\rm
 
 ## Acknowledgements
 
-The existence of this software would not have been possible without the thoughful supervision of Prof, F. Fiore and Dr. Chiara Feruglio. I also thank Dr. F. Salvestrini for being the first test subject and for provinding very useful feedback.
+The existence of this software would not have been possible without the thoughful supervision of Prof. F. Fiore and Dr. Chiara Feruglio. I also thank Dr. F. Salvestrini for being the first test subject and for provinding very useful feedback.
