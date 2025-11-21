@@ -487,7 +487,7 @@ def run_chain(start,npar,par_type,filename,nu_obs,flux,flux_err,z,Dl,A,fix,radio
             pos = [pos0] + 1e-2 * np.random.randn(walk, npar)
             log_posterior = log_posterior_1par_T
             inst.dmass = fix[0]
-            inst.beta = fix[1]
+            inst.beta_fix = fix[1]
 
         else:
             print('Error: wrong parameter type. Should be Md, or beta, or Td. String format. Case sensitive.')
