@@ -241,7 +241,7 @@ def plot_sed(freq_plot,sampler,par_type,par,nu_obs,flux,flux_err,z,Dl,A,c,fix,nd
 
         elif par_type == 'Td':
             inst.dmass = fix[0]
-            inst.beta = fix[1]
+            inst.beta_fix = fix[1]
             ax.plot(freq_plot,inst.sobs_1par_T(freq_plot, popt), label = 'MBB', c = 'mediumblue', lw = 1.5, zorder =1)
 
             if display_res == True:
@@ -256,7 +256,7 @@ def plot_sed(freq_plot,sampler,par_type,par,nu_obs,flux,flux_err,z,Dl,A,c,fix,nd
         
     elif ndim==2:
         if par_type[0] == 'Md' and par_type[1] == 'beta':
-            inst.T = fix
+            inst.T = fix[0]
             if radio == 0:
                 ax.plot(freq_plot,inst.sobs_2par(freq_plot, popt), label = 'MBB', c = 'mediumblue', lw = 1.5, zorder =1)
             else:
@@ -270,7 +270,7 @@ def plot_sed(freq_plot,sampler,par_type,par,nu_obs,flux,flux_err,z,Dl,A,c,fix,nd
                 r'$T_{\rm dust}=%i $K (fixed)' % (fix[0], )))
 
         elif par_type[0] == 'Md' and par_type[1] == 'Td':
-            inst.beta_fix2 = fix
+            inst.beta_fix2 = fix[0]
             ax.plot(freq_plot,inst.sobs_2par_Md_Td(freq_plot, popt), label = 'MBB', c = 'mediumblue', lw = 1.5, zorder =1)
 
             if display_res == True:
@@ -280,7 +280,7 @@ def plot_sed(freq_plot,sampler,par_type,par,nu_obs,flux,flux_err,z,Dl,A,c,fix,nd
                 r'$\beta=%.2f$ (fixed)' % (fix[0], )))
 
         elif par_type[0] == 'beta' and par_type[1] == 'Td':
-            inst.dmass = fix
+            inst.dmass = fix[0]
             ax.plot(freq_plot,inst.sobs_2par_beta_Td(freq_plot, popt), label = 'MBB', c = 'mediumblue', lw = 1.5, zorder =1)
 
             if display_res == True:
@@ -343,7 +343,7 @@ def sed_func_plot(freq_plot,nu_obs,par_type,popt,ndim,z,A,Dl,fix,radio=0,norm_ra
             
         elif par_type == 'Td':
             inst.dmass = fix[0]
-            inst.beta = fix[1]
+            inst.beta_fix = fix[1]
             res = inst.sobs_1par_T(freq_plot, popt)
 
         else:
@@ -351,18 +351,18 @@ def sed_func_plot(freq_plot,nu_obs,par_type,popt,ndim,z,A,Dl,fix,radio=0,norm_ra
 
     elif ndim==2:
         if par_type[0] == 'Md' and par_type[1] == 'beta':
-            inst.T = fix
+            inst.T = fix[0]
             if radio ==0:
                 res = inst.sobs_2par(freq_plot, popt)
             else:
                 inst.norm = norm_radio
                 res = inst.sobs_2par_radio(freq_plot, popt)
         elif par_type[0] == 'Md' and par_type[1] == 'Td':
-            inst.beta_fix2 = fix
+            inst.beta_fix2 = fix[0]
             res = inst.sobs_2par_Md_Td(freq_plot, popt)
 
         elif par_type[0] == 'beta' and par_type[1] == 'Td':
-            inst.dmass = fix
+            inst.dmass = fix[0]
             res = inst.sobs_2par_beta_Td(freq_plot, popt)
 
         else:
@@ -392,7 +392,7 @@ def l_sfr(flat_samples,ndim,par_type,z,c,Dl,A,fix,a1,b1):
             for ind in range(len(flat_samples)):
                 xint = np.logspace(np.log10(b1),np.log10(a1),num=100)
                 func = inst.sobs_1par(xint,flat_samples[ind])
-                I3_chain = np.append(I3_chain,scipy.integrate.simps(func,xint)) #(mJy*GHz)
+                I3_chain = np.append(I3_chain,scipy.integrate.simpson(func,xint)) #(mJy*GHz)
 
         elif par_type == 'beta':
             inst.dmass = fix[0]
@@ -402,17 +402,17 @@ def l_sfr(flat_samples,ndim,par_type,z,c,Dl,A,fix,a1,b1):
             for ind in range(len(flat_samples)):
                 xint = np.logspace(np.log10(b1),np.log10(a1),num=100)
                 func = inst.sobs_1par_beta(xint,flat_samples[ind])
-                I3_chain = np.append(I3_chain,scipy.integrate.simps(func,xint)) #(mJy*GHz)
+                I3_chain = np.append(I3_chain,scipy.integrate.simpson(func,xint)) #(mJy*GHz)
             
         elif par_type == 'Td':
             inst.dmass = fix[0]
-            inst.beta = fix[1]
+            inst.beta_fix = fix[1]
 
             I3_chain = np.array([])
             for ind in range(len(flat_samples)):
                 xint = np.logspace(np.log10(b1),np.log10(a1),num=100)
                 func = inst.sobs_1par_T(xint,flat_samples[ind])
-                I3_chain = np.append(I3_chain,scipy.integrate.simps(func,xint)) #(mJy*GHz)
+                I3_chain = np.append(I3_chain,scipy.integrate.simpson(func,xint)) #(mJy*GHz)
 
         else:
             print('Error: wrong parameter type. Should be Md, or beta, or Td. String format. Case sensitive.')
@@ -421,31 +421,31 @@ def l_sfr(flat_samples,ndim,par_type,z,c,Dl,A,fix,a1,b1):
     elif ndim==2:
 
         if par_type[0] == 'Md' and par_type[1] == 'beta':
-            inst.T = fix
+            inst.T = fix[0]
 
             I3_chain = np.array([])
             for ind in range(len(flat_samples[:,0])):
                 xint = np.logspace(np.log10(b1),np.log10(a1),num=100)
                 func = inst.sobs_2par(xint,(flat_samples[ind,0],flat_samples[ind,1]))
-                I3_chain = np.append(I3_chain,scipy.integrate.simps(func,xint)) #(mJy*GHz)
+                I3_chain = np.append(I3_chain,scipy.integrate.simpson(func,xint)) #(mJy*GHz)
             
         elif par_type[0] == 'Md' and par_type[1] == 'Td':
-            inst.beta_fix2 = fix
+            inst.beta_fix2 = fix[0]
 
             I3_chain = np.array([])
             for ind in range(len(flat_samples[:,0])):
                 xint = np.logspace(np.log10(b1),np.log10(a1),num=100)
                 func = inst.sobs_2par_Md_Td(xint,(flat_samples[ind,0],flat_samples[ind,1]))
-                I3_chain = np.append(I3_chain,scipy.integrate.simps(func,xint)) #(mJy*GHz)
+                I3_chain = np.append(I3_chain,scipy.integrate.simpson(func,xint)) #(mJy*GHz)
 
         elif par_type[0] == 'beta' and par_type[1] == 'Td':
-            inst.dmass = fix
+            inst.dmass = fix[0]
 
             I3_chain = np.array([])
             for ind in range(len(flat_samples[:,0])):
                 xint = np.logspace(np.log10(b1),np.log10(a1),num=100)
                 func = inst.sobs_2par_beta_Td(xint,(flat_samples[ind,0],flat_samples[ind,1]))
-                I3_chain = np.append(I3_chain,scipy.integrate.simps(func,xint)) #(mJy*GHz)
+                I3_chain = np.append(I3_chain,scipy.integrate.simpson(func,xint)) #(mJy*GHz)
 
         else:
             print('Error: wrong parameter types. Should be [Md, beta], or [Md, Td], or [beta, Td]. String format. Case sensitive.')
@@ -457,7 +457,7 @@ def l_sfr(flat_samples,ndim,par_type,z,c,Dl,A,fix,a1,b1):
         for ind in range(len(flat_samples[:,0])):
             xint = np.logspace(np.log10(b1),np.log10(a1),num=100)
             func = inst.sobs_3par(xint,(flat_samples[ind,0],flat_samples[ind,1],flat_samples[ind,2]))
-            I3_chain = np.append(I3_chain,scipy.integrate.simps(func,xint))
+            I3_chain = np.append(I3_chain,scipy.integrate.simpson(func,xint))
 
     
     dl = Dl * 3.08e21 #cm
@@ -522,7 +522,7 @@ def l_SFR_bestfit(popt,ndim,par_type,z,c,Dl,A,fix,a1,b1):
             
         elif par_type == 'Td':
             inst.dmass = fix[0]
-            inst.beta = fix[1]
+            inst.beta_fix                                                                                                                                                                                                                                                                                                                                                                                                            = fix[1]
             I3 = quad(inst.sobs_1par_T, b1,a1, args=arg) #(mJy*GHz)
 
         else:
@@ -534,15 +534,15 @@ def l_SFR_bestfit(popt,ndim,par_type,z,c,Dl,A,fix,a1,b1):
         arg = np.array([popt[0],popt[1]])
 
         if par_type[0] == 'Md' and par_type[1] == 'beta':
-            inst.T = fix
+            inst.T = fix[0]
             I3 = quad(inst.sobs_2par, b1,a1, args=arg) #(mJy*GHz)
             
         elif par_type[0] == 'Md' and par_type[1] == 'Td':
-            inst.beta_fix2 = fix
+            inst.beta_fix2 = fix[0]
             I3 = quad(inst.sobs_2par_Md_Td, b1,a1, args=arg) #(mJy*GHz)
 
         elif par_type[0] == 'beta' and par_type[1] == 'Td':
-            inst.dmass = fix
+            inst.dmass = fix[0]
             I3 = quad(inst.sobs_2par_beta_Td, b1,a1, args=arg) #(mJy*GHz)
 
         else:
