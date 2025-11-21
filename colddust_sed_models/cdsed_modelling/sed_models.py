@@ -160,14 +160,16 @@ class fitClass:
 
             M_dust = 1*10**p0 * 1.99e30 *1e3
             sigma_dust = M_dust/(self.A*9e42)
+
+            beta = self.beta_fix2
             
-            k_nu = 0.45*(x*(1+self.z)/250)**self.beta_fix2
+            k_nu = 0.45*(x*(1+self.z)/250)**beta
 
             T_0 = 2.73
             T_cmb_z = T_0*(1+self.z)
             Bcmb = BlackBody(temperature=T_cmb_z*u.K)
 
-            T_dust_z = (p1**(4+self.beta_fix2)+T_0**(4+self.beta_fix2)*((1+self.z)**(4+self.beta_fix2)-1))**(1/(4+self.beta_fix2))
+            T_dust_z = (p1**(4+beta)+T_0**(4+beta)*((1+self.z)**(4+beta)-1))**(1/(4+beta))
             Bdust = BlackBody(temperature=T_dust_z*u.K)
 
             tau = sigma_dust*k_nu
@@ -501,18 +503,18 @@ def run_chain(start,npar,par_type,filename,nu_obs,flux,flux_err,z,Dl,A,fix,radio
             else:
                 log_posterior = log_posterior_2par_radio
                 inst.norm = norm_radio
-            inst.T = fix
+            inst.T = fix[0]
         elif par_type[0] == 'Md' and par_type[1] == 'Td':
             pos0, pos1 = start
             pos = [pos0,pos1] + 1e-2 * np.random.randn(walk, npar)
             log_posterior = log_posterior_2par_Md_Td
-            inst.beta_fix2 = fix
+            inst.beta_fix2 = fix[0]
 
         elif par_type[0] == 'beta' and par_type[1] == 'Td':
             pos0, pos1 = start
             pos = [pos0,pos1] + 1e-2 * np.random.randn(walk, npar)
             log_posterior = log_posterior_2par_beta_Td
-            inst.dmass = fix
+            inst.dmass = fix[0]
 
         else:
             print('Error: wrong parameter types. Should be [Md, beta], or [Md, Td], or [beta, Td]. String format. Case sensitive.')
