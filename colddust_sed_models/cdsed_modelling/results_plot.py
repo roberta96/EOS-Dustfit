@@ -12,6 +12,8 @@ from IPython.display import display, Math
 
 from .sed_models import *
 
+#version 17/02/2026
+
 def labels(ndim,type_par):
 
     if ndim==1:

@@ -13,6 +13,8 @@ from scipy.integrate import quad
 import emcee
 import corner
 
+#version 17/02/2026
+
 
 class fitClass:
     def __init__(self):
