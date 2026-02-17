@@ -27,7 +27,7 @@ If you use this tool, please do not forget to cite [Tripodi et al. (2024)](https
 7. `corner v2.2.2`
 8. `IPython v8.15.0`
 
-The current version of `EOS-Dustfit` (v1.0.7) works with those versions of the packages. The compatibility with different versions of the python/packages is not guaranteed. If needed, it is advisable to create an environemnt with all the required packages.
+The current version of `EOS-Dustfit` (v1.0.8) works with those versions of the packages. The compatibility with different versions of the python/packages is not guaranteed. If needed, it is advisable to create an environemnt with all the required packages.
 
 ### <a name="Install"></a>How to install `EOS-Dustfit`
 
